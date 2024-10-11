@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:meditation/common/color_extension.dart';
 import 'package:meditation/common_widget/round_button.dart';
 import 'package:meditation/screen/login/login_screen.dart';
+import 'package:meditation/screen/login/sign_up_screen.dart';
 
 class StartUpScreen extends StatefulWidget {
   const StartUpScreen({super.key});
@@ -51,7 +52,11 @@ class _StartUpScreenState extends State<StartUpScreen> {
             ),
           ),
           const Spacer(),
-          RoundButton(title: "SIGN UP", onPressed: () {}),
+          RoundButton(
+              title: "SIGN UP",
+              onPressed: () {
+                context.push(const SignUpScreen());
+              }),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

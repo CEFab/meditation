@@ -3,16 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:meditation/common/color_extension.dart';
 import 'package:meditation/common_widget/round_button.dart';
 import 'package:meditation/common_widget/round_text_field.dart';
-import 'package:meditation/screen/login/sign_up_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
+  bool isTrue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 alignment: Alignment.bottomCenter,
                 children: [
                   Image.asset(
-                    "assets/img/login_top.png",
+                    "assets/img/Login_top.png",
                     width: double.maxFinite,
                     fit: BoxFit.fitWidth,
                   ),
@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 25,
                       ),
                       Text(
-                        "Welcome Back!",
+                        "Create your account",
                         style: TextStyle(
                           color: TColor.primaryText,
                           fontSize: 28,
@@ -153,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 35,
               ),
               Text(
-                "OR LOG IN WITH EMAIL",
+                "OR SIGN UP WITH EMAIL",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: TColor.secondaryText,
@@ -162,6 +162,10 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(
                 height: 35,
+              ),
+              RoundTextField(hintText: "Username"),
+              const SizedBox(
+                height: 20,
               ),
               RoundTextField(hintText: "Email address"),
               const SizedBox(
@@ -174,45 +178,46 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 20,
               ),
-              RoundButton(title: "LOG IN", onPressed: () {}),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Forgot Password?",
-                  style: TextStyle(
-                    color: TColor.primaryText,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "CREATE A NEW ACCOUNT?",
-                    style: TextStyle(
-                      color: TColor.secondaryText,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      "i have read the ",
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(color: TColor.secondaryText, fontSize: 14),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      context.push(const SignUpScreen());
-                    },
-                    child: Text(
-                      "SIGN UP",
+                    Text(
+                      "Privacy Policy",
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: TColor.primary,
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                  )
-                ],
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isTrue = !isTrue;
+                        });
+                      },
+                      icon: Icon(
+                        isTrue
+                            ? Icons.check_box
+                            : Icons.check_box_outline_blank,
+                        color: TColor.secondary,
+                      ),
+                    )
+                  ],
+                ),
               ),
+              const SizedBox(
+                height: 8,
+              ),
+              RoundButton(title: "GET STARTED", onPressed: () {}),
               const Spacer(),
             ],
           ),
