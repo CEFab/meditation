@@ -16,32 +16,23 @@ class TColor {
 extension AppContext on BuildContext {
   Size get size => MediaQuery.sizeOf(this);
   double get width => size.width;
-  double get height =>
-      size.height; // Getter to retrieve the height of the size property.
+  double get height => size.height;
 
   Future push(Widget widget) async {
-    // Method to navigate to a new screen with the given widget.
     return Navigator.push(
         this, MaterialPageRoute(builder: (context) => widget));
   }
 
   void pop() async {
-    // Method to pop the current screen off the navigation stack.
     return Navigator.pop(this);
   }
 }
 
 extension HexColor on Color {
-  // Extension method to add functionality to the Color class.
   static Color formHex(String hexString) {
-    // Converts a hex string to a Color object.
     final buffer = StringBuffer();
-    if (hexString.length == 6 || hexString.length == 7)
-      buffer.write('ff'); // Adds 'ff' if the hex string is in short form.
-    buffer
-        .write(hexString.replaceFirst("#", '')); // Removes the '#' if present.
-    return Color(int.parse(buffer.toString(),
-        radix:
-            16)); // Parses the hex string to an integer and creates a Color object.
+    if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
+    buffer.write(hexString.replaceFirst("#", ''));
+    return Color(int.parse(buffer.toString(), radix: 16));
   }
 }

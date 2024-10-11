@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meditation/common/color_extension.dart';
 import 'package:meditation/common_widget/round_button.dart';
+import 'package:meditation/screen/home/reminders_screen.dart';
+import 'package:meditation/screen/home/welcome_screen.dart';
 import 'package:meditation/screen/login/login_screen.dart';
 import 'package:meditation/screen/login/sign_up_screen.dart';
 
@@ -56,6 +58,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
               title: "SIGN UP",
               onPressed: () {
                 context.push(const SignUpScreen());
+                // context.push(const WelcomeScreen());
+                // context.push(const RemindersScreen());
               }),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

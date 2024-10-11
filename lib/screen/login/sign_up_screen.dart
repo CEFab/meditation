@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:meditation/common/color_extension.dart';
 import 'package:meditation/common_widget/round_button.dart';
 import 'package:meditation/common_widget/round_text_field.dart';
+import 'package:meditation/screen/home/welcome_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -217,7 +218,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(
                 height: 8,
               ),
-              RoundButton(title: "GET STARTED", onPressed: () {}),
+              RoundButton(
+                  title: "GET STARTED",
+                  onPressed: () {
+                    context.push(const WelcomeScreen());
+                  }),
               const Spacer(),
             ],
           ),
